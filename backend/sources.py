@@ -31,7 +31,7 @@ def extractSearchResults(title):
 
 
 
-def fetch(title):
+def search(title):
     results = extractSearchResults(title)
     return results, 200
     

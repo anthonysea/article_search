@@ -12,9 +12,9 @@ basePath: "/api"
 
 # Paths supported by the server application
 paths:
-  /sources:
+  /search:
     get:
-      operationId: "sources.fetch"
+      operationId: "sources.search"
       parameters: 
         - in: query
           name: title
@@ -22,7 +22,7 @@ paths:
           #schema:
           type: string
       tags:
-        - "Sources"
+        - "Search"
       summary: "Endpoing will call web crawler that finds different news sources from Google"
       description: "Get a list of different news sources"
       responses:
