@@ -18,6 +18,7 @@ app = new Vue({
                 // need to extract title from URL
                 split_url = inp.split("/")
                 inp = split_url[split_url.length - 1]
+                inp.replace(/\-/, "+")
             // input is assumed to be the title
             } else {
                 re = new RegExp("\ ", "g")
