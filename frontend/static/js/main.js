@@ -9,20 +9,23 @@ app = new Vue({
     },
     methods: {
         parseInput(inp) {
-            url_pattern = new RegExp("\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#iS")
+            url_pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/
             // input matches a URL
             if (inp.match(url_pattern)) {
+                console.log("URL input") 
                 // remove trailing / from URL (if it exists)
-                inp.replace(/\/$/, "");
+                inp = inp.replace(/\/$/, "")
                 // need to extract title from URL
                 split_url = inp.split("/")
                 inp = split_url[split_url.length - 1]
-                inp.replace(/\-/, "+")
+                inp = inp.replace(/\-/g, "+")
+                console.log(inp)
             // input is assumed to be the title
             } else {
-                re = new RegExp("\ ", "g")
+                re = /\ /g
                 inp.replace(re, "+")
             }
+            console.log(inp)
             return inp
 
             
