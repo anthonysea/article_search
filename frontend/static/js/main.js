@@ -13,14 +13,11 @@ app = new Vue({
             
             // input matches a URL
             if (inp.match(url_pattern)) {
+                // remove trailing / from URL (if it exists)
+                inp.replace(/\/$/, "");
                 // need to extract title from URL
                 split_url = inp.split("/")
-                // trailing / at the end of the URL
-                if (split_url[split_url.length - 1] === "") {
-                    inp = split_url[split_url.lenght - 2]
-                } else {
-                    inp = split_url[split_url.length - 1]
-                }
+                inp = split_url[split_url.length - 1]
             // input is assumed to be the title
             } else {
                 re = new RegExp("\ ", "g")
