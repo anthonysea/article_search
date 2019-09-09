@@ -12,7 +12,11 @@
             <h1>Article Search</h1>
         </header>
         <input placeholder="Enter the title of the article to search" v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
-        <table>
+        <table v-if="articles">
+            <thead>
+                <th>Publication</th>
+                <th>Link</th>
+            </thead>
             <tr v-for="article in articles">
                 <td>{{ article.source }}</td>
                 <td><a :href="article.url">{{ article.title }}</a></td>
