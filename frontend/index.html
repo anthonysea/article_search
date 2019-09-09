@@ -8,11 +8,20 @@
 </head>
 <body>
     <div class="main">
-        <h1>Article Search</h1>
-        <input v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
-        {{ info }}
-        {{ input_ }}
+        <header>
+            <h1>Article Search</h1>
+        </header>
+        <input placeholder="Enter the title of the article to search" v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
+        <table>
+            <tr v-for="article in articles">
+                <td>{{ article.source }}</td>
+                <td><a :href="article.url">{{ article.title }}</a></td>
+            </tr>
+        </table>
     </div>
+    <footer>
+        
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="static/js/main.js"></script>

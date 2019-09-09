@@ -4,7 +4,7 @@ app = new Vue({
     el: ".main",
     data: {
         hello: "hello world",
-        info: null,
+        articles: null,
         input_: "",
     },
     methods: {
@@ -35,8 +35,7 @@ app = new Vue({
             cleanedInp = this.parseInput(inp)
             axios
                 .get(`http://localhost:5000/api/search?title=${cleanedInp}`)
-                .then(response => (this.info = response))
-
+                .then(response => (this.articles = response.data))
         },
 
     },
