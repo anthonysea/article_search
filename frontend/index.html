@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">-->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <title>Article Search</title>
 </head>
@@ -11,21 +12,23 @@
         <header>
             <h1>Article Search</h1>
         </header>
-        <input placeholder="Enter the title of the article to search" v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
-        <table v-if="articles">
-            <thead>
-                <th>Publication</th>
-                <th>Link</th>
-            </thead>
-            <tr v-for="article in articles">
-                <td>{{ article.source }}</td>
-                <td><a :href="article.url">{{ article.title }}</a></td>
-            </tr>
-        </table>
+        <main>
+            <input placeholder="Enter the title of the article to search" v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
+            <table v-if="articles">
+                <thead>
+                    <th>Publication</th>
+                    <th>Link</th>
+                </thead>
+                <tr v-for="article in articles">
+                    <td>{{ article.source }}</td>
+                    <td><a :href="article.url">{{ article.title }}</a></td>
+                </tr>
+            </table>
+        </main> 
+        <footer>
+            <h5>Created by Anthony Chao - <a href="http://www.github.com/anthonysea">GitHub</a></h5>
+        </footer>
     </div>
-    <footer>
-        
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="static/js/main.js"></script>
