@@ -1,10 +1,11 @@
 from bs4 import BeautifulSoup
 import requests
 
-def extractSearchResults(title):
+def extractSearchResults(title, numberOfResults):
 
     results = []
-    url = f"https://www.google.com/search?query={title}&tbm=nws"
+    url = f"https://www.google.com/search?query={title}&num={numberOfResults}&tbm=nws"
+    print(url)
     r = requests.get(url)
     soup = BeautifulSoup(r.content, "html.parser")
     # Results are in a div.g
@@ -31,7 +32,7 @@ def extractSearchResults(title):
 
 
 
-def search(title):
-    results = extractSearchResults(title)
+def search(title, numberOfResults):
+    results = extractSearchResults(title, numberOfResults)
     return results, 200
     

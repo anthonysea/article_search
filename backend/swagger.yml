@@ -19,8 +19,12 @@ paths:
         - in: query
           name: title
           required: true
-          #schema:
           type: string
+        - in: query
+          name: numberOfResults
+          required: false
+          type: integer
+          default: 10
       tags:
         - "Search"
       summary: "Endpoing will call web crawler that finds different news sources from Google"
