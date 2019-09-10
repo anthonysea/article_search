@@ -6,6 +6,7 @@ app = new Vue({
         hello: "hello world",
         articles: null,
         input_: "",
+        numberOfResults: 10,
     },
     methods: {
         parseInput(inp) {
@@ -34,7 +35,7 @@ app = new Vue({
             console.log(event);
             cleanedInp = this.parseInput(inp)
             axios
-                .get(`http://localhost:5000/api/search?title=${cleanedInp}`)
+                .get(`http://localhost:5000/api/search?title=${cleanedInp}&numberOfResults=${this.numberOfResults}`)
                 .then(response => (this.articles = response.data))
         },
 

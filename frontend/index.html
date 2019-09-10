@@ -13,7 +13,8 @@
             <h1>Article Search</h1>
         </header>
         <main>
-            <input placeholder="Enter the title of the article to search" v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
+            <input name="userInput" placeholder="Enter the title of the article to search" v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
+            <input name="numResults" type="number" min="1" max="50" v-model="numberOfResults" placeholder="Number of results to fetch">
             <table v-if="articles">
                 <thead>
                     <th>Publication</th>
