@@ -6,10 +6,10 @@ app = new Vue({
         hello: "hello world",
         articles: null,
         input_: "",
-        numberOfResults: 10,
+        numberOfResults: null,
     },
     methods: {
-        parseInput(inp) {
+        parseQuery(inp) {
             url_pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/
             // input matches a URL
             if (inp.match(url_pattern)) {
@@ -28,12 +28,16 @@ app = new Vue({
             }
             console.log(inp)
             return inp
+        },
+        parseNumberOfResults() {
 
-            
         },
         articleSearch(event, inp) {
             console.log(event);
-            cleanedInp = this.parseInput(inp)
+            cleanedInp = this.parseQuery(inp)
+            if (!this.numberOfResults) {
+                this.numberOfResults = 10;
+            }
             axios
                 .get(`http://localhost:5000/api/search?title=${cleanedInp}&numberOfResults=${this.numberOfResults}`)
                 .then(response => (this.articles = response.data))
