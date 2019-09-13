@@ -41,6 +41,14 @@ div.main {
     flex-direction: column;
 }
 
+div#errors {
+    padding-left: 1.3em;
+}
+
+div#errors > ul {
+    list-style-type: none;
+}
+
 div#userInput {
     padding: 1.3em;
 }

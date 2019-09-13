@@ -10,15 +10,20 @@
 <body>
     <div class="main">
         <header>
-            <h1>Article Search</h1>
+            <h1>Article Search</h1> 
         </header>
         <main>
+            <div id="errors" v-if="errors.length >= 1">
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+            </div>
             <div id="userInput">
                 <input name="query" placeholder="Enter the title of the article to search" v-model="input_" type="text" @keyup.enter="articleSearch($event, input_)">
-                <input name="numResults" type="number" min="1" max="50" v-model="numberOfResults" placeholder="Number of results to fetch (default=10)" @keyup.enter="articleSearch($event, input_)">
+                <input name="numResults" type="text" v-model="numberOfResults" placeholder="Number of results to fetch (default=10)" @keyup.enter="articleSearch($event, input_)">
             </div>
             <table v-if="articles">
-                <thead>
+                <thead> 
                     <th>Publication</th>
                     <th>Link</th>
                 </thead>
