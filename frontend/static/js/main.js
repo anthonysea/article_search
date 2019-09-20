@@ -50,28 +50,12 @@ app = new Vue({
                     this.numberOfResults = numResInt
                     return true
                 } else {
-                    this.errors.push("Please enter an integer between 1 and 50 (inclusive) or leave blank for 10")
-                    // this.errors[0] = "Please enter an integer between 1 and 50 (inclusive) or leave blank for 10"
+                    // Add new value to array with this code to trigger Vue reactivity
+                    Vue.set(this.errors, 0, "Please enter an integer between 1 and 50 (inclusive) or leave blank for 10")
                     console.log("error2")
                     return false
                 }
             }
-        
-            // if (Number.isInteger(this.numberOfResults) && (1 <= this.numberOfResults) && (this.numberOfResults <= 50)) {
-            //     this.errors = []
-            //     console.log('working')
-            //     return true
-            // } else if (!this.numberOfResults) {
-            //     this.numberOfResults = 10
-            //     this.errors = []
-            //     console.log('branch1')
-            //     return true
-            // } else {
-            //     // this.errors[0] = "Please enter an integer between 1 and 50 (inclusive) or leave blank for 10"
-            //     this.errors.push("Please enter an integer between 1 and 50 (inclusive) or leave blank for 10")
-            //     console.log('error')
-            //     return false
-            // }
         },
         articleSearch(event, inp) {
             console.log(event);
