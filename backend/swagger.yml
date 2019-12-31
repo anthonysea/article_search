@@ -33,7 +33,7 @@ paths:
         200:
           description: "Successfully found different news sources for a given article"
           schema:
-            type: "array"
+            type: array
             items:
               properties:
                 url: 
